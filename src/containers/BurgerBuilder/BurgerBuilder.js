@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-order';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
@@ -100,7 +101,7 @@ class  BurgerBuilder extends Component {
 			},
 			deliveryMethod: 'fssdsds'
 		};
-		axios.post('/orders.json', order)
+		axios.post('/orders', order)
 			.then(resp => {
 				this.setState({loading: false, purchasing: false})
 			})
@@ -146,4 +147,4 @@ class  BurgerBuilder extends Component {
 	}
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);
