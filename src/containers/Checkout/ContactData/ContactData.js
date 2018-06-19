@@ -83,7 +83,8 @@ export default class ContactData extends Component {
 						{value: 'cheapes', displayValue: 'Cheapes'},
 					]
 				},
-				value: '',
+				value: 'fastest',
+				validation: {},
 				valid: true,
 			},
 		},
